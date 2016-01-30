@@ -27,8 +27,8 @@ gap_x 5
 gap_y 40
 max_specials 1024
 max_user_text 10000
-maximum_width 180
-minimum_size 0 0
+maximum_width 220
+minimum_size 850
 net_avg_samples 2
 no_buffers yes
 override_utf8_locale yes
@@ -59,8 +59,8 @@ own_window_argb_value 0
 own_window_argb_visual no
 TEXT
 ${color2}${goto 10}${font DejaVu Sans Mono:size=44}${time %I}${font DejaVu Sans Mono:size=20}${voffset -25}'${time %M}${font DejaVu Sans Mono:size=8}${voffset -12}${time %S}${font DejaVu Sans Mono:size=20}${time %p}${voffset -30}
-${color2}${goto 85}${voffset 10}${font :size=8}${time %A}
-${color2}${goto 85}${voffset 1}${font :size=8}${time %d %B %Y}
+${color2}${goto 100}${voffset 10}${font :size=8}${time %A}
+${color2}${goto 100}${voffset 1}${font :size=8}${time %d %B %Y}
 #${color}${font RsbillsDng:size=14}O${font}${font DejaVu Sans Mono:size=8}${execpi 3600 DJS=`date +%_d`; cal -m | sed '1d' | sed '/./!d' | sed 's/$/                     /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/${alignc} /' | sed /" $DJS "/s/" $DJS "/" "'${color2}'"$DJS"'${color}'" "/}${font}
 
 ${voffset -0}${color2}${font led:size=10}SYSTEM ${font}$hr
@@ -93,11 +93,11 @@ ${voffset -0}${color2}${font led:size=10}WIFI ${font}$hr
 ${color}gateway IP: ${alignr}${gw_ip}
 ${color}local IP: $alignr${addr wlp2s0}
 ${color}public IP: $alignr${execi 60 _.conky/ip.sh}
-${voffset 5}${color}${goto 10}${font pizzadude bullets:size=16}D${font}${color}${voffset -12}${goto 40}Down: ${downspeed wlp2s0}kb/s ${color}
+${voffset 5}${color}${goto 10}${font pizzadude bullets:size=16}D${font}${color}${voffset -12}${goto 40}Down: ${downspeedf wlp2s0}Kb/s ${color}
 ${goto 40}Day: ${totaldown wlp2s0}${voffset -12}${alignr}${downspeedgraph wlp2s0 25,50 64574e 64574e}
 ${voffset -13}${goto 40}Month: ${execi 300 vnstat -i wlp2s0 -m | grep "`date +"'%y"`" | tail -1 | awk '{print $3 $4}'}
 
-${color}${goto 10}${font pizzadude bullets:size=16}U${font}$color${voffset -12}${goto 40}Up: ${upspeed wlp2s0}kb/s${color}
+${color}${goto 10}${font pizzadude bullets:size=16}U${font}$color${voffset -12}${goto 40}Up: ${upspeedf wlp2s0}kb/s${color}
 ${goto 40}Day: ${totalup wlp2s0}${voffset -12}${alignr}${upspeedgraph wlp2s0 25,50 64574e 64574e}
 ${voffset -13}${goto 40}Month: ${execi 300 vnstat -i wlp2s0 -m | grep "`date +"'%y"`" | tail -1 | awk '{print $6 $7}'}
 
